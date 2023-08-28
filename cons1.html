@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Consignor Master</title>
+    <script src="cities.js"></script>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fas fa-user-secret me-2"></i>Company Name</div>
+            <div class="list-group list-group-flush my-3" id="myMASTER">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text " onclick="openNew(event,'Dashboard')"><i
+                        class="fas fa-tachometer-alt me-2" ></i>Master Dashboard</a>
+                        <a href="cons1.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active" onclick="openCity(event, 'Master')"><i 
+                            class="fas fa-bars" id="defaultOpen"></i> Consignor Master</a>
+                        <a href="cons2.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Booking')"><i 
+                            class="fas fa-bars"></i> Consignee Master</a>
+                        <a href="vehicle_master.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Invoice')"><i 
+                            class="fas fa-file-invoice"></i>  Vehicle Master</a>
+                        <a href="driver_master.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="fas fa-truck"></i> Driver Master</a>
+                            <a href="trip_master.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                              class="fas fa-truck"></i> Trip Master</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">MASTER(LOGISTICS)</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>User
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                               
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <form class="row g-3">
+                <fieldset>
+                    <legend>Consignor Master</legend>
+                    <h5 style="color:rgb(0, 59, 148)">New Mode</h2>
+                <div class="col-11">
+                    <label class="visually-hidden" for="inputName">Name</label>
+                    <input type="text" class="form-control" name="name_c1" id="inputName" placeholder="Name"><br>
+                </div>
+                <div class="col-11"><!-- <label for="inputPlace" class="form-label"></label> -->
+                    <input type="text" class="form-control" name="place_c1" id="inputPlace" placeholder="Place"><br>
+                </div>
+                <div class="col-11">
+                    <input type="text" class="form-control" name="address1_c1" id="inputAddress" placeholder="Address"><br>
+                  </div>
+                  <div class="col-11">
+                    <input type="text" class="form-control" name="address2_c1" id="inputAddress2" placeholder="Address 2"><br>
+                  </div>
+                  <div class="col-11">
+                    <input type="text" class="form-control" name="gst_c1" id="inputGST" placeholder="GST No"><br>
+                  </div>
+                  <div class="col-11">
+                    <select onchange="print_city('state', this.selectedIndex);" id="sts" name="city_c1" class="form-control" required></select>
+                  </div><br>
+                  <div class="col-11">
+                    <select id="state" class="form-control" name="state_c1" required ></select><br />
+                    <script language="javascript">
+                        print_state("sts");
+                    </script>
+                  </div>
+                  <div class="col-11">
+                    <input type="text" class="form-control" name="txtcode_c1" id="inputTxtCode" placeholder="txtcode"><br>
+                  </div>
+                  <div class="col-11">
+                    <input type="text" class="form-control" name="phn_c1" id="inputPhone" placeholder="Phone No."><br>
+                  </div>
+                  <div class="col-11">
+                    <input type="text" class="form-control" name="email_c1" id="inputEmail" placeholder="Email ID"><br>
+                  </div>
+                  <div class="col-11">
+                    <label class="visually-hidden" for="autoSizingSelect">Select Station</label>
+                        <select class="form-select" id="autoSizingSelect" name="station_c1">
+                            <option value="">Select Station</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                        </select>
+                  </div><br>
+                  <div class="row">               
+                   
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px; " id="savecontact" name="save_ct_c1">Save Contact</button>
+                      </div>
+                      <div class="col-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px;" id="Delete_contact" name="dlt_ct_c1"> Delete Contact</button>
+                      </div>
+                      <div class="col-1">
+                        <button type="reset" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px;" id="Clear" name="clear_c1"> Clear</button>
+                      </div>
+                      <div class="col-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px;" id="Excel" name="excel_c1">Excel</button>
+                      </div>
+                     
+                  </div> 
+                   </fieldset>
+        </form>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+   
+</body>
+</html>

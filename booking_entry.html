@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Booking Entry</title>
+    <script src="cities.js"></script>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fas fa-user-secret me-2"></i>Company Name</div>
+            <div class="list-group list-group-flush my-3" id="myMASTER">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" onclick="openNew(event,'Dashboard')"><i
+                        class="fas fa-tachometer-alt me-2" ></i>Booking Dashboard</a>
+                        <a href="booking_entry.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active" onclick="openCity(event, 'Master')"><i 
+                            class="fas fa-bars" id="defaultOpen"></i> Booking Entry</a>
+                        <a href="dispatch_entry.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Booking')"><i 
+                            class="fas fa-bars"></i> Dispatch Entry</a>
+                        <a href="booking_report.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Invoice')"><i
+                            class="fas fa-chart-bar"></i>  Booking Report</a>
+                        <a href="booking_partywise.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="fas fa-truck" ></i> Booking Partywise</a>
+                        <a href="booking_stationwise.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="fas fa-truck"></i> Booking Stationwise</a>
+                        <a href="booking_vehiclewise.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="far fa-user-circle"></i> Booking Vehiclewise</a>
+                        <a href="booking_on_transit.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="far fa-user-circle"></i> Booking on Transist</a>
+                        <a href="dispatch_report.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="far fa-user-circle"></i> Dispatch Report</a>
+                        <a href="dispatch_pending.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="far fa-user-circle"></i> Dispatch Pending</a>
+                        <a href="booking_status.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" onclick="openCity(event, 'Delivery')"><i 
+                            class="fas fa-truck"></i> Booking Status</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0"> Booking(Logistics) </h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>User
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                               
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4" id="Dashboard">
+                <div class="row g-3 my-2">
+
+            </div>
+            <form class="row g-3">
+                <fieldset>
+                    <legend>Booking Entry</legend>
+                    <h5 style="color:rgb(0, 59, 148)">New Mode</h2>
+                      <div class="row">
+                    
+                        <div class="col">
+                            <label for="Veh No.">Veh No.</label>
+                            <select class="form-select" id="autoSizingSelect" name="veh_no_be" >
+                                <option value="" selected disabled>Vehicle No.</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                            </select>
+            
+                          </div>
+                      </div><br>
+
+                          <div class="row">
+                            <div class="col">
+                                <label class="visually-hidden" for="autoSizingSelect">From Station</label>
+                                <select class="form-select" id="autoSizingSelect" name="from_station_be" >
+                                    <option value="" selected disabled>From Station</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                              
+                            </div>
+                            <div class="col">
+                              <!-- <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                              <label class="visually-hidden" for="autoSizingSelect">To Station</label> -->
+                                <select class="form-select" id="autoSizingSelect" name="to_station_be">
+                                    <option value="" selected disabled>To Station</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                            </div>
+                          </div><br>
+                          <div class="row">
+                            <div class="col">
+                                <label for="LR No." >LR No.</label>
+                              <input type="text" class="form-control" name="lr_no_be" placeholder="LR No" aria-label="LR No">
+                            </div>
+                            <div class="col">
+                                <label for="Date">Date</label>
+                              <input type="text" class="form-control" name="date_be" placeholder="Date" aria-label="Date">
+                            </div>
+                            <div class="col">
+                                <label for="Time">Time</label>
+                                <input type="text" class="form-control" name="time_be" placeholder="Time" aria-label="Time">
+                              </div>
+                          </div><br>
+                          <div class="row">
+                            <div class="col">
+                                <label for="Eway Bill No.">Eway Bill No.</label>
+                              <input type="text" class="form-control" placeholder="Eway Bill No." name="eway_bill_no_be" aria-label="Eway Bill No.">
+                            </div>
+                            <div class="col">
+                                <label for="Date">Date</label>
+                              <input type="date" class="form-control" placeholder="Date" name="date_be">
+                            </div>
+                            <div class="col">
+                              <label for="time">Time</label>
+                            <input type="time" class="form-control" placeholder="Time" name="time_be">
+                          </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                                <label for="INV No.">INV No.</label>
+                                <input type="text" class="form-control" name="inv_no_be" placeholder="INV No." aria-label="INV No.">
+                              </div>
+                          </div><br>
+                          
+                  <div class="row">
+                    <div class="col">
+                        <label for="Consignor">Consignor</label>
+                                <select class="form-select" id="autoSizingSelect" name="consignor_be">
+                                    <option value="" selected disabled>Select an Option</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                    </div>
+                    <div class="col">
+                        <label for="Consignee">Consignee</label>
+                        <select class="form-select" id="autoSizingSelect" name="consignee_be" >
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                        </select>
+                      </div>
+                  </div><br>
+
+                  <div class="row">
+                    <div class="col"> 
+                      <input type="text" class="form-control" placeholder="Place" name="place_be1" aria-label="Place">
+                    </div>
+                    <div class="col"> 
+                        <input type="text" class="form-control" placeholder="Place" name="place_be2"  aria-label="Place">
+                      </div>
+                  </div><br>
+
+                  <div class="row">
+                    <div class="col"> 
+                      <input type="text" class="form-control" placeholder="Address" name="address_be1" aria-label="Address">
+                    </div>
+                    <div class="col"> 
+                        <input type="text" class="form-control" placeholder="Address" name="address_be1" aria-label="Address">
+                      </div>
+                  </div><br>
+
+                  <div class="row">
+                    <div class="col"> 
+                      <input type="number"  class="form-control" maxlength="10" placeholder="Phone" name="phone_be1" aria-label="Phone">
+                    </div>
+                    <div class="col"> 
+                        <input type="number" class="form-control" maxlength="10" placeholder="Phone" name="phone_be2" aria-label="Phone">
+                      </div>
+                  </div><br>
+                  <div class="row">
+                    
+                    <div class="col">
+                        <label for="S. No. Particulars">S. No. Particulars</label>
+                                <select class="form-select" id="autoSizingSelect" name="s_no_part_be1" >
+                                    <option value="" selected disabled>Select an Option</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                    </div>
+                    <div class="col">
+                        <label for="Unit">Cartons</label>
+                        <select class="form-select" id="autoSizingSelect" name="cartons_be1" >
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="1">Bag</option>
+                            <option value="2">KG</option>
+                        </select>
+                      </div>
+                    <div class="col"> 
+                        <label for="No. of Art.">No. of Art.</label>
+                        <input type="number" class="form-control" name="no_of_art_be1">
+                    </div>
+                    <div class="col"> 
+                        <label for="Act. Wt">Act. Wt</label>
+                        <input type="number" class="form-control" name="act_wt_be1">
+                    </div>
+                    <div class="col"> 
+                        <label for="Frt. Wt">Frt. Wt</label>
+                        <input type="number" class="form-control" name="frt_wt_be1">
+                    </div>
+                    <div class="col"> 
+                        <label for="Rate">Rate</label>
+                        <input type="number" class="form-control" name="rate_be1">
+                    </div>
+                    <div class="col"> 
+                        <label for="Rs">Rs</label>
+                        <input type="number" class="form-control" name="rs_be1">
+                    </div>
+                    <div class="col"> 
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                        <label class="visually-hidden" for="S. No. Particulars">S. No. Particulars</label>
+                                <select class="form-select" id="autoSizingSelect" name="s_no_part_be2" >
+                                    <option value="" selected disabled>Select an Option</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                    </div>
+                    <div class="col">
+                        <label class="visually-hidden" for="Cartons">Cartons</label>
+                        <select class="form-select" id="autoSizingSelect" name="cartons_be2">
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="1">Bag</option>
+                            <option value="2">KG</option>
+                        </select>
+                      </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="No. of Art." >No. of Art.</label>
+                        <input type="number" class="form-control" name="no_of_art_be2">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Act. Wt">Act. Wt</label>
+                        <input type="number" class="form-control" name="act_wt_be2">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Frt. Wt">Frt. Wt</label>
+                        <input type="number" class="form-control" name="frt_wt_be2">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Rate">Rate</label>
+                        <input type="number" class="form-control" name="rate_be2">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Rs">Rs</label>
+                        <input type="number" class="form-control" name="rs_be2">
+                    </div>
+                    <div class="col"> 
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                        <label class="visually-hidden" for="S. No. Particulars">S. No. Particulars</label>
+                                <select class="form-select" id="autoSizingSelect" name="s_no_part_be3">
+                                    <option value="" selected disabled>Select an Option</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                    </div>
+                    <div class="col">
+                        <label class="visually-hidden" for="cartons">Cartons</label>
+                        <select class="form-select" id="autoSizingSelect" name="cartons_be3" >
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="1">Bag</option>
+                            <option value="2">KG</option>
+                        </select>
+                      </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="No. of Art."name="no_of_art_be3" >No. of Art.</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Act. Wt" name="act_wt_be3">Act. Wt</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Frt. Wt" name="frt_wt_be2">Frt. Wt</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Rate" name="rate_be3">Rate</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="col"> 
+                        <label class="visually-hidden" for="Rs" name="rs_be1=3">Rs</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="col"> 
+                    </div>
+                  </div><br>
+
+                  <div class="row">
+                    <div class="col"> 
+                    </div>               
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col" "> 
+                       <label >Hamali</label> 
+                      <input type="text" class="form-control" name="hamali_be1" >
+                    </div>
+                    <div class="col"> 
+                        <label ></label> 
+                       <input type="text" class="form-control" name="hamali_be2">
+                     </div>
+                    
+                  </div>
+                  
+
+                  <div class="row">   
+                    <div class="col"> 
+                    </div>               
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>            
+                    <div class="col" "> 
+                       <label >Commission</label> 
+                      <input type="text" class="form-control" name="commission_be">
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col"> 
+                    </div>               
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>               
+                    <div class="col" > 
+                       <label >LR Charge</label> 
+                      <input type="text" class="form-control" name="lr_charge_be" >
+                    </div>
+                    <div class="col"> 
+                    </div>
+                  </div>
+                  <div class="row">  
+                    <div class="col"> 
+                    </div>               
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>             
+                    <div class="col" > 
+                       <label >Door Del Charge</label> 
+                      <input type="text" class="form-control" name="door_del_charge_be">
+                    </div>
+                    <div class="col"> 
+                    </div>
+                  </div>
+                  <div class="row">  
+                    <div class="col"> 
+                    </div>               
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>
+                    <div class="col"> 
+                    </div>             
+                    <div class="col" > 
+                       <label >Total Amount</label> 
+                      <input type="text" class="form-control" name="total_amount_be">
+                    </div>
+                    <div class="col"> 
+                    </div>
+                
+                
+                    
+                  </div>
+                  <div class="row">   
+                    <div class="col-md-4" > 
+                       <label for="goods value">Goods Value</label> 
+                      <input type="text" class="form-control" placeholder="Invoice Value" name="goods_value_be">
+                    </div>
+                    
+                  </div>  
+                  
+                  <div class="row">               
+                    <div class="col-md-4" > 
+                       <label for=" remark"> Remark</label> 
+                      <input type="text" class="form-control" placeholder="Remark" name="remark_be">
+                    </div>
+                    
+                  </div> 
+
+                  <div class="row">               
+                    <div class="col-md-4" > 
+                       <label for="Delete remark"> Delete Remark</label> 
+                      <input type="text" class="form-control" placeholder="Remark" name="delete_remark_be">
+                    </div>
+                    
+                  </div> 
+                  
+                  <div class="row">               
+                    <div class="col-2" >
+                        <input type="checkbox" id="mail" name="source" value="Send Mail" name="send_mail_be">
+                        <label for="mail">Send Mail</label>
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px; " id=" Save_LR" name="save_lr_be"> Save LR</button>
+                      </div>
+                      <div class="col-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px;" id="Delete_LR" name="dlt_lr_be"> Delete LR</button>
+                      </div>
+                      <div class="col-1">
+                        <button type="reset" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px;" id="New_LR" name="new_lr_be"> New LR</button>
+                      </div>
+                      <div class="col-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#009d63;border: #009d63; border-radius: 10px;" id="Print_LR" name="print_lr_be"> Print LR</button>
+                      </div>
+                      <div class="col-2" >
+                        <input type="checkbox" id="mail" name="topay_print_be"  checked style="cursor:no-drop" disabled>
+                        <label for="ToPay Print">ToPay Print</label>
+                    </div>
+                  </div> 
+                    
+                
+                  
+                  
+                </fieldset>
+        </form>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
